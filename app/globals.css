@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,17 +16,46 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: white;
+  background: black;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+header{
+  height: 100px;
+}
+
+main{
+  padding: 1rem;
+}
+
+main .content-home{
+  position: fixed;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+}
+
+main .content-home h1{
+  font-size: 50px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  padding: 20px;
+  text-align: right;
+}
+
+
+@media screen and (max-width:600px){
+  main .content-home{
+    position: initial;
+    top: initial;
+    left:  initial;
+    transform:  initial;
+    width: 100%
+  }  
 }
