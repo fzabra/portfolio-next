@@ -7,6 +7,7 @@ const GitHubCalendarComponent: React.FC = () => {
     <div className={styles.calendarContainer}>
       <h2>Gráfico de Contribuições do GitHub</h2>
       <GitHubCalendar username="fzabra" />
+      <p><a href='https://github.com/fzabra/' target='_blank'>https://github.com/fzabra/</a></p>
     </div>
   );
 };

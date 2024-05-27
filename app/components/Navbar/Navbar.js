@@ -11,29 +11,29 @@ const Navbar = () => {
   const links = [
     {
       id: 1,
-      link: "/",
-      title: "Home",
+      link: "https://www.linkedin.com/in/fabricio-sobral",
+      title: "Linkedin",
     },
     {
       id: 2,
-      link: "/dashboard",
-      title: "dashboard",
+      link: "https://github.com/fzabra/",
+      title: "gitHub",
     },
-    {
-      id: 3,
-      link: "/portfolio",
-      title: "portfolio",
-    },
-    {
-      id: 4,
-      link: "/team/2",
-      title: "experience",
-    },
-    {
-      id: 5,
-      link: "/contact",
-      title: "contact",
-    },
+    // {
+    //   id: 3,
+    //   link: "/portfolio",
+    //   title: "portfolio",
+    // },
+    // {
+    //   id: 4,
+    //   link: "/team/2",
+    //   title: "experience",
+    // },
+    // {
+    //   id: 5,
+    //   link: "/contact",
+    //   title: "contact",
+    // },
   ];
 
   return (
@@ -48,7 +48,7 @@ const Navbar = () => {
             key={id}
             className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline"
           >
-            <Link href={link}>{title}</Link>
+            <Link href={link} target="_blank">{title}</Link>
           </li>
         ))}
       </ul>

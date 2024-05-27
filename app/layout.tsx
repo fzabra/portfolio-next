@@ -1,5 +1,5 @@
 import "./globals.scss";
-// import Navbar from "@/app/components/Navbar/Navbar";
+import Navbar from "@/app/components/Navbar/Navbar";
 
 import { Cairo_Play } from 'next/font/google'
  
@@ -17,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={fontGoogle.className}>
-       {/* <header>
+       <header>
           <Navbar />
-       </header> */}
+       </header>
         <main>{children}</main>
       </body>
     </html>
