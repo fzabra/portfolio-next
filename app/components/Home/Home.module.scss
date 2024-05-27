@@ -1,0 +1,133 @@
+main {
+ 
+  .containerHome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    margin-left: 0;
+    padding: 10px;
+    
+    .contentHome {
+
+      @media screen and (max-width: 600px) {
+        position: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 50px;
+        line-height: 50px;
+      }
+
+      p {
+        text-align: left;
+      }
+    }
+  } 
+  .contentHomeImg {
+    p {
+      text-align: right;
+    }
+  }
+
+
+  .contentDashboard {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: #242424;
+    height: 100vh;
+
+    h1 {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &.hidden {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+
+  .contentPortfolio {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: #000;
+
+    h1 {
+        font-size: 100px;
+        text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main{
+    .containerHome {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-left: -200px;
+      margin-top: 2%;
+      .contentHome {
+        position: relative;
+        top: 300px;
+        left: 11%;
+        width: 20%;
+      }
+      .contentHomeImg{
+        width:690px
+      }
+    }
+  
+    .contentDashboard {
+  
+      h1 {
+          font-size: 100px;
+          text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  main{
+    .containerHome {
+      .contentHome {
+        position: relative;
+        left: 8%;
+        width: 10%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-height:768px)  {
+  main{
+    .containerHome {
+      .contentHome {
+        position: relative;
+        left: 8%;
+        width: 14%;
+        top: 130px;
+      }
+      .contentHomeImg{
+        width:500px
+      }
+    }
+    .contentDashboard {
+      padding: 0;
+    }
+  }
+}

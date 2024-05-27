@@ -1,9 +1,13 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/app/components/Navbar/Navbar";
+import "./globals.scss";
+// import Navbar from "@/app/components/Navbar/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Cairo_Play } from 'next/font/google'
+ 
+const fontGoogle = Cairo_Play({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export default function RootLayout({
   children,
@@ -12,12 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-       <header>
+      <body className={fontGoogle.className}>
+       {/* <header>
           <Navbar />
-       </header>
+       </header> */}
         <main>{children}</main>
-        <footer>sajdhs</footer>
       </body>
     </html>
   )

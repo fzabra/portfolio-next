@@ -1,0 +1,129 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: white;
+  background: black;
+}
+
+header {
+  height: 100px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  padding: 20px;
+  text-align: right;
+}
+
+// img{
+//   max-width: initial!important;
+//   width: 100%;
+//   height: auto;
+// }
+
+@media (max-width: 768px) {
+  .gallery-item {
+    flex: 1 1 calc(50% - 40px); /* 2 itens por linha em telas menores */
+  }
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+  }
+
+  .photo {
+    background: #161616;
+    padding: 20px;
+    border: 1px solid #242424;
+  }
+
+  .texto {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+.skillbar {
+  font-family: "Open Sans", "sans-serif";
+  position: relative;
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  background: #eee;
+  height: 35px;
+  border-radius: 4px;
+  transition: 0.4s linear;
+  transition-property: width, background-color;
+
+  &-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    font-size: 13px;
+    color: #fff;
+    background: #007e9e;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+    span {
+      display: block;
+      background: rgba(0, 0, 0, 0.1);
+      padding: 0 20px;
+      height: 35px;
+      line-height: 35px;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+  }
+
+  &-bar {
+    height: 35px;
+    width: 0px;
+    background: #004455;
+  }
+
+  &-percent {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 11px;
+    height: 35px;
+    line-height: 35px;
+    color: #444;
+    color: rgba(0, 0, 0, 0.4);
+  }
+}

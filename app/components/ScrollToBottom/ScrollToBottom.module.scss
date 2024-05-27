@@ -1,0 +1,19 @@
+.scrollToBottom {
+  position: fixed;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  z-index: 2;
+  width: 90px;
+}
+
+.atBottom img {
+  transform: rotate(180deg); 
+}
+
