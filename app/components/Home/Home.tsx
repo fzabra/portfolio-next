@@ -32,7 +32,7 @@ const Home = () => {
     <div>
       <div className={styles.contentDashboard}>
         <h1 className={fontGoogle2.className}>Hard Skills</h1>
-        <SkillsLogos/>
+        <SkillsLogos />
         <GitHubCalendarComponent/>
       </div>
     </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Skills.module.scss';
 import Image from 'next/image';
 import htmlIcon from '../../assets/img/icons/html5.svg';
@@ -21,9 +21,38 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
-
+import { ClipLoader } from 'react-spinners';
 
 const SkillsLogos: React.FC = () => {
+  const icons = [
+    { src: htmlIcon, alt: 'HTML', label: 'HTML' },
+    { src: css3Icon, alt: 'CSS', label: 'CSS' },
+    { src: lessIcon, alt: 'Less', label: 'LESS' },
+    { src: sassIcon, alt: 'Sass', label: 'SASS' },
+    { src: jsIcon, alt: 'JavaScript', label: 'JAVASCRIPT' },
+    { src: tsIcon, alt: 'TypeScript', label: 'TYPESCRIPT' },
+    { src: reactIcon, alt: 'React', label: 'REACT' },
+    { src: nextIcon, alt: 'NextJS', label: 'NEXTJS' },
+    { src: gitIcon, alt: 'Git', label: 'GIT' },
+    { src: githubIcon, alt: 'GitHub', label: 'GITHUB' },
+    { src: gitlabIcon, alt: 'GitLab', label: 'GITLAB' },
+    { src: bitbucketIcon, alt: 'Bitbucket', label: 'BITBUCKET' },
+    { src: magentoIcon, alt: 'Magento', label: 'MAGENTO' },
+    { src: jiraIcon, alt: 'Jira', label: 'JIRA' },
+  ];
+
+  const [imageLoading, setImageLoading] = useState(
+    new Array(icons.length).fill(true)
+  );
+
+  const handleImageLoad = (index: number) => {
+    setImageLoading((prevState) => {
+      const newState = [...prevState];
+      newState[index] = false;
+      return newState;
+    });
+  };
+
   return (
     <div className={styles.skillsContainer}>
       <Swiper
@@ -34,7 +63,7 @@ const SkillsLogos: React.FC = () => {
           delay: 0,
           disableOnInteraction: false,
         }}
-        speed={5000} 
+        speed={5000}
         pagination={{
           clickable: true,
         }}
@@ -56,25 +85,30 @@ const SkillsLogos: React.FC = () => {
             spaceBetween: 10,
           },
         }}
-        modules={[ Autoplay]}
+        modules={[Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide><Image src={htmlIcon} alt="HTML" width="100" height="100" />HTML</SwiperSlide>
-        <SwiperSlide><Image src={css3Icon} alt="CSS" width="100" height="100" />CSS</SwiperSlide>
-        <SwiperSlide><Image src={lessIcon} alt="Less" width="100" height="100" />LESS</SwiperSlide>
-        <SwiperSlide><Image src={sassIcon} alt="Sass" width="100" height="100" />SASS</SwiperSlide>
-        <SwiperSlide><Image src={jsIcon} alt="HTML" width="100" height="100" />JAVASCRIPT</SwiperSlide>
-        <SwiperSlide><Image src={tsIcon} alt="CSS" width="100" height="100" />TYPESCRIPT</SwiperSlide>
-        <SwiperSlide><Image src={reactIcon} alt="Less" width="100" height="100" />REACT</SwiperSlide>
-        <SwiperSlide><Image src={nextIcon} alt="Sass" width="100" height="100" />NEXTJS</SwiperSlide>
-        <SwiperSlide><Image src={gitIcon} alt="CSS" width="100" height="100" />GIT</SwiperSlide>
-        <SwiperSlide><Image src={githubIcon} alt="Less" width="100" height="100" />GITHUB</SwiperSlide>
-        <SwiperSlide><Image src={gitlabIcon} alt="Sass" width="100" height="100" />GITLAB</SwiperSlide>
-        <SwiperSlide><Image src={bitbucketIcon} alt="HTML" width="100" height="100" />BITBUCKET</SwiperSlide>
-        <SwiperSlide><Image src={magentoIcon} alt="CSS" width="100" height="100" />MAGENTO</SwiperSlide>
-        <SwiperSlide><Image src={jiraIcon} alt="Sass" width="100" height="100" />JIRA</SwiperSlide>
-        <SwiperSlide><Image src={reactIcon} alt="Less" width="100" height="100" />REACT</SwiperSlide>
-        <SwiperSlide><Image src={nextIcon} alt="Sass" width="100" height="100" />NEXTJS</SwiperSlide>
+        {icons.map((icon, index) => (
+          <SwiperSlide key={index}>
+            <div className={styles.imageContainer}>
+              {imageLoading[index] && (
+                <div className={styles.loaderContainer}>
+                  <ClipLoader color="#000" loading={true} size={50} />
+                </div>
+              )}
+              <Image
+                src={icon.src}
+                alt={icon.alt}
+                width={100}
+                height={100}
+                loading="lazy"
+                onLoad={() => handleImageLoad(index)}
+                className={imageLoading[index] ? styles.hidden : styles.visible}
+              />
+              {!imageLoading[index] && <span>{icon.label}</span>}
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

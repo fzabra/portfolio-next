@@ -19,21 +19,6 @@ const Navbar = () => {
       link: "https://github.com/fzabra/",
       title: "gitHub",
     },
-    // {
-    //   id: 3,
-    //   link: "/portfolio",
-    //   title: "portfolio",
-    // },
-    // {
-    //   id: 4,
-    //   link: "/team/2",
-    //   title: "experience",
-    // },
-    // {
-    //   id: 5,
-    //   link: "/contact",
-    //   title: "contact",
-    // },
   ];
 
   return (
@@ -79,3 +64,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+        
